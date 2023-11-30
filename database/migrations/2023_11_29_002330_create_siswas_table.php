@@ -16,8 +16,6 @@ return new class extends Migration
             $table->string('nama');
             $table->tinyInteger('umur');
             $table->timestamps();
-
-
         });
     }
 

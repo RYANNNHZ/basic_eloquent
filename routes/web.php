@@ -1,8 +1,8 @@
 <?php
 
+use App\Models\Siswa;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController;
-use App\Models\Siswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,7 @@ use App\Models\Siswa;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/siswa');
 });
 
 //route untuk halaman utama FIXME:✔

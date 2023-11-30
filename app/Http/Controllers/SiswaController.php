@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Siswa;
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Models\Siswa;
 class SiswaController extends Controller
 {
     //controller untuk memfetch data
@@ -20,14 +20,14 @@ class SiswaController extends Controller
     }
 
     public function TambahSiswa(Request $request){
-        $messages = [
-            'required' => 'input wajib di isi'
+        $m = [
+            'required' => 'input wajib di isi',
         ];
 
         $this->validate($request,[
             'nama' => 'required|string',
             'umur' => 'required|numeric',
-        ],$messages);
+        ],$m);
 
         siswa::create([
             'nama' => $request->input('nama'),
@@ -40,8 +40,8 @@ class SiswaController extends Controller
 //controller untuk mengedit data siswa
 
 public function Editsis($id){
-    $siswa = siswa::find($id);
-    return view('content.edit',['siswa' => $siswa]);
+    // $siswa = siswa::find($id);
+    return view('content.edit',['siswa' => siswa::find($id)]);
 }
 
 public function EditSiswa(Request $request){
